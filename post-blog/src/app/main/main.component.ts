@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeListComponent } from '../theme-list/theme-list.component';
+import { ThemeListComponent } from '../theme/theme-list/theme-list.component';
 import { PostsListComponent } from '../posts-list/posts-list.component';
 
 @Component({

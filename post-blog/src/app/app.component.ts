@@ -16,9 +16,5 @@ export class AppComponent {
 
   
 
-  ngOnInit() {
-    // this.http.get("https://angular-workshop-cc58e-default-rtdb.firebaseio.com/.json").subscribe((x: any) => {
-    //   console.log(x.Product);
-    // });
-  }
+  ngOnInit() {}
 }
