@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../api.service';
+import { Theme } from '../../types/theme';
 
 @Component({
   selector: 'app-theme-details',
@@ -7,6 +10,20 @@ import { Component } from '@angular/core';
   templateUrl: './theme-details.component.html',
   styleUrl: './theme-details.component.css'
 })
-export class ThemeDetailsComponent {
+export class ThemeDetailsComponent implements OnInit {
+  theme = {} as Theme;
 
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe((data) => {
+
+    })
+
+    const id = this.route.snapshot.params["themeId"];
+
+    this.apiService.getSingleTheme(id).subscribe(theme => {
+      this.theme = theme;
+    })
+  }
 }
