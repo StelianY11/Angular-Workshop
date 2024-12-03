@@ -2,6 +2,9 @@
     <!-- theme content  -->
     <div class="theme-content">
         <!-- theme-title  -->
+        @if(!isLoggedIn){
+            <app-home />
+        }
         <div class="theme-title">
             <div class="theme-name-wrapper">
                 <div class="theme-name">
@@ -9,7 +12,7 @@
                     <p>Date: <time>{{theme.created_at}}</time></p>
                 </div>
                 <div class="subscribers">
-                    <p>Subscribers: @if(theme.subscribers){<span>{{theme.subscribers.length || 0}}</span>}</p>
+                    <p>Subscribers: @if(theme.subscribers){<span>{{theme.subscribers?.length || 0}}</span>}</p>
                     <!-- <button class="subscribe">Subscribe</button>
                     <button class="unsubscribe">Unsubscribe</button> -->
                 </div>
@@ -36,6 +39,7 @@
             </div>
         </div>
         }
+        @if(isLoggedIn){
         <div class="answer-comment">
             <p><span>currentUser</span> comment:</p>
             <div class="answer">
@@ -45,6 +49,6 @@
                 </form>
             </div>
         </div>
-
+        }
     </div>
 </div>

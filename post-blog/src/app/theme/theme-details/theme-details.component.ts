@@ -2,22 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { Theme } from '../../types/theme';
+import { UserService } from '../../user/user.service';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-theme-details',
   standalone: true,
-  imports: [],
+  imports: [HomeComponent],
   templateUrl: './theme-details.component.html',
   styleUrl: './theme-details.component.css'
 })
 export class ThemeDetailsComponent implements OnInit {
   theme = {} as Theme;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { 
-    console.log(this.theme);
-    
-  }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private userService: UserService) { }
 
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
+  }
   ngOnInit(): void {
     this.route.params.subscribe((data) => {
 
