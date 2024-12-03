@@ -13,7 +13,10 @@ import { Theme } from '../../types/theme';
 export class ThemeDetailsComponent implements OnInit {
   theme = {} as Theme;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { 
+    console.log(this.theme);
+    
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((data) => {
